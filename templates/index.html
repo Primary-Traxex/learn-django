@@ -80,8 +80,8 @@
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">特点 <span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu">
                     <li><a href="#chrome">Chrome</a></li>
-                    <li><a href="#tab-firefox">Firefox</a></li>
-                    <li><a href="#tab-safari">Safari</a></li>
+                    <li><a href="#firefox">Firefox</a></li>
+                    <li><a href="#safari">Safari</a></li>
                     <li><a href="#opera">Opera</a></li>
                     <li><a href="#ie">IE</a></li>
                   </ul>
@@ -190,11 +190,11 @@
 
               <!-- Nav tabs滚动监听 -->
               <ul class="nav nav-tabs" role="tablist" id="table-list">
-                <li role="presentation" class="active"><a href="#chrome" aria-controls="chrome" role="tab" data-toggle="tab">Chrome</a></li>
-                <li role="presentation"><a href="#tab-firefox" aria-controls="firefox" role="tab" data-toggle="tab">Firefox</a></li>
-                <li role="presentation"><a href="#tab-safari" aria-controls="safari" role="tab" data-toggle="tab">Safari</a></li>
-                <li role="presentation"><a href="#opera" aria-controls="opera" role="tab" data-toggle="tab">Opera</a></li>
-                <li role="presentation"><a href="#ie" aria-controls="ie" role="tab" data-toggle="tab">IE</a></li>
+                <li class="active"><a href="#chrome" role="tab" data-toggle="tab">Chrome</a></li>
+                <li><a href="#firefox" role="tab" data-toggle="tab">Firefox</a></li>
+                <li><a href="#safari" role="tab" data-toggle="tab">Safari</a></li>
+                <li><a href="#opera" role="tab" data-toggle="tab">Opera</a></li>
+                <li><a href="#ie" role="tab" data-toggle="tab">IE</a></li>
               </ul>
 
               <!-- Tab panes -->
@@ -292,10 +292,11 @@
     <script src="js/bootstrap.min.js"></script>
     <script>
         $(document).ready(function(){
-            $("#demo-navbar .dropdown-menu a").click(function(){
+            $("#demo-navbar").find(".dropdown-menu a").click(function(e){
                 var href = $(this).attr("href");
-
-                $("#tab-list a[href='"+href+"']").tab("show");
+                $("#table-list").find("a[href='"+href+"']").tab("show");
+                    e.preventDefault();
+                    $(document).scrollTop($(href).offset().top - 120);
             });
         });
     </script>
